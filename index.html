@@ -1,178 +1,782 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bảng Giá Kỷ Yếu CAM STUDIO</title>
-    <meta name="description" content="CAM — Chụp Ảnh & Make Up Kỷ Yếu">
+<title>CAM STUDIO - Bảng Báo Giá</title>
 
-    <link rel="stylesheet" href="style.css">
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#303030;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#111;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width:100%;
+    padding:50px 5%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    color:white;
+}
+
+.brand{
+    font-size:26px;
+    letter-spacing:2px;
+}
+
+.header-title{
+    font-size:22px;
+    font-weight:300;
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   VÙNG CHỨA TỜ GIẤY
+========================= */
+
+.stage{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+
+    padding:50px 20px 100px;
+}
+
+
+/* =========================
+   TỜ GIẤY
+========================= */
+
+.paper{
+    position:relative;
+
+    width:min(580px, 92vw);
+    min-height:920px;
+
+    /* nền trắng xám */
+    background:
+        linear-gradient(
+            58deg,
+            transparent 0%,
+            transparent 28%,
+            rgba(0,0,0,0.12) 29%,
+            rgba(0,0,0,0.12) 39%,
+            transparent 40%,
+            transparent 100%
+        ),
+        #f1f1f1;
+
+    padding:
+        75px
+        50px
+        55px
+        50px;
+
+    overflow:visible;
+}
+.paper::after{
+    content:"";
+
+    position:absolute;
+    top:-25px;
+    left:25px;
+    right:25px;
+    bottom:-25px;
+
+    border:2px solid rgba(255,255,255,0.9);
+
+    pointer-events:none;
+    z-index:10;
+}
+
+/* =========================
+   TIÊU ĐỀ
+========================= */
+
+.main-title{
+    width:100%;
+
+    text-align:center;
+
+    font-size:50px;
+    font-weight:300;
+
+    line-height:0.95;
+    letter-spacing:-2px;
+}
+
+
+/* =========================
+   NÚT CAM STUDIO
+========================= */
+
+.tag{
+    width:max-content;
+
+    margin:20px auto 0;
+
+    padding:6px 12px;
+
+    background:#111;
+    color:white;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   CHỮ DỌC BÊN TRÁI
+========================= */
+
+.vertical{
+    position:absolute;
+
+    left:25px;
+
+    writing-mode:vertical-rl;
+
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.vertical-one{
+    top:350px;
+}
+
+.vertical-two{
+    top:700px;
+}
+
+
+/* =========================
+   PHẦN GIỚI THIỆU
+========================= */
+
+.intro{
+    width:78%;
+
+    margin:
+        10px
+        0
+        0
+        auto;
+
+    text-align:right;
+}
+
+.intro h2{
+    font-size:20px;
+    font-weight:400;
+
+    margin-bottom:12px;
+}
+
+.intro-tag{
+    display:inline-block;
+
+    background:#111;
+    color:white;
+
+    padding:5px 9px;
+
+    font-size:13px;
+}
+
+.intro-sub{
+    margin-top:5px;
+
+    font-size:12px;
+    color:#555;
+}
+
+
+/* =========================
+   MÔ TẢ
+========================= */
+
+.description{
+    width:78%;
+
+    margin:
+        40px
+        0
+        40px
+        auto;
+
+    text-align:right;
+
+    font-size:9px;
+    line-height:1.2;
+
+    color:#666;
+}
+
+
+/* =========================
+   ẢNH
+========================= */
+
+.gallery{
+    width:78%;
+
+    margin-left:auto;
+}
+
+.photo{
+    display:block;
+
+    width:100%;
+    height:150px;
+
+    object-fit:cover;
+}
+
+.photo + .photo{
+    margin-top:18px;
+}
+
+
+/* =========================
+   CHỮ CUỐI
+========================= */
+
+.bottom-copy{
+    width:78%;
+
+    margin:
+        25px
+        0
+        0
+        auto;
+
+    text-align:center;
+
+    font-size:9px;
+
+    color:#555;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    height:100px;
+
+    padding:0 5%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#111;
+    color:white;
+}
+
+.footer-brand{
+    font-size:20px;
+}
+
+.footer-text{
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .header{
+        padding:25px 5%;
+    }
+
+    .brand{
+        font-size:16px;
+    }
+
+    .header-title{
+        font-size:13px;
+    }
+
+
+    .stage{
+        padding:25px 0 60px;
+    }
+
+
+    .paper{
+        width:100%;
+
+        padding:
+            65px
+            35px
+            50px
+            35px;
+    }
+
+
+    /* TIÊU ĐỀ */
+
+    .main-title{
+        width:100%;
+
+        text-align:center;
+
+        font-size:42px;
+        line-height:0.95;
+        letter-spacing:-2px;
+    }
+
+
+    .tag{
+        margin-top:18px;
+    }
+
+
+    .intro{
+        width:78%;
+        margin-top:80px;
+    }
+
+
+    .intro h2{
+        font-size:18px;
+    }
+
+
+    .gallery,
+    .description,
+    .bottom-copy{
+        width:78%;
+    }
+
+
+    .photo{
+        height:150px;
+    }
+
+
+    .vertical{
+        left:50px;
+        font-size:8px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <p class="brand">CAM STUDIO </p>
 
-            <h1>BẢNG GIÁ KỶ YẾU 2026 </h1>
+<!-- =====================
+     HEADER
+===================== -->
 
-            <a href="#pricing" class="button">
-                Xem bảng giá
-            </a>
-        </div>
-    </header>
+<header class="header">
 
+    <div class="brand">
+        <strong>CAM</strong> STUDIO
+    </div>
+
+    <div class="header-title">
+        [ PHOTOGRAPHY ]
+    </div>
+
+</header>
+
+
+
+<!-- =====================
+     MAIN
+===================== -->
+
+<main class="stage">
+
+
+<article class="paper">
+
+
+    <!-- TIÊU ĐỀ -->
+
+    <div class="main-title">
+        BẢNG BÁO GIÁ<br>
+        PHÓNG SỰ CƯỚI
+    </div>
+    <!-- CHỮ DỌC -->
+
+    <div class="vertical vertical-one">
+        REAL MOMENTS
+    </div>
+
+    <div class="vertical vertical-two">
+        TRUE STORIES
+    </div>
+
+
+
+    <!-- GIỚI THIỆU -->
 
     <section class="intro">
-        <p class="label">CAM STUDIO</p>
 
-        <h2>
-            Lưu giữ những năm tháng
-            không thể quay lại
-        </h2>
+        
+        <div class="intro-tag">
+            CAM STUDIO
+        </div>
 
-        <p>
-            Những khoảnh khắc của tuổi trẻ,
-            được lưu lại theo cách của riêng bạn.
-        </p>
-    </section>
-
-
-    <section class="pricing" id="pricing">
-
-        <p class="label">BẢNG GIÁ</p>
-
-        <h2>Các gói chụp</h2>
-
-        <div class="price-list">
-
-            <div class="price-card">
-                <h3>KỶ YẾU CÁ NHÂN</h3>
-
-                <div class="price">
-                    900.000đ
-                </div>
-
-                <p>01 buổi chụp</p>
-
-                <ul>
-                    <li>Chụp ảnh cá nhân</li>
-                    <li>File ảnh chỉnh màu</li>
-                    <li>Hỗ trợ tạo dáng</li>
-                    <li>Trang phục & phụ kiện</li>
-                </ul>
-
-                <a href="#contact">
-                    Liên hệ
-                </a>
-            </div>
-
-
-            <div class="price-card featured">
-
-                <span class="tag">
-                    ĐƯỢC LỰA CHỌN
-                </span>
-
-                <h3>NHÓM 2 NGƯỜI</h3>
-
-                <div class="price">
-                    700.000đ/người
-                </div>
-
-                <p>01 buổi chụp</p>
-
-                <ul>
-                    <li>Chụp ảnh nhóm & cá nhân</li>
-                    <li>File ảnh chỉnh màu</li>
-                    <li>Hỗ trợ tạo dáng</li>
-                    <li>Trang phục & phụ kiện</li>
-                </ul>
-
-                <a href="#contact">
-                    Liên hệ
-                </a>
-            </div>
-
-
-            <div class="price-card">
-
-                <h3>NHÓM 3–4 NGƯỜI</h3>
-
-                <div class="price">
-                    600.000đ/người
-                </div>
-
-                <p>01 buổi chụp</p>
-
-                <ul>
-                    <li>Chụp ảnh nhóm & cá nhân</li>
-                    <li>File ảnh chỉnh màu</li>
-                    <li>Hỗ trợ tạo dáng</li>
-                    <li>Trang phục & phụ kiện</li>
-                </ul>
-
-                <a href="#contact">
-                    Liên hệ
-                </a>
-            </div>
-
+        <div class="intro-sub">
+            WEDDING • GRADUATION • STORY
         </div>
 
     </section>
 
 
-    <section class="gallery">
 
-        <p class="label">KHOẢNH KHẮC</p>
 
-        <h2>Một chút thanh xuân</h2>
+<!-- =========================
+     BẢNG GIÁ KIỂU DỌC
+========================= -->
 
-        <div class="gallery-grid">
+<div style="
+    width:100%;
+    margin-top:25px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:14px;
+    font-weight:600;
+">
 
-            <div class="photo">
-                ẢNH 01
-            </div>
+    <!-- KHUNG TIÊU ĐỀ -->
+    <div style="
+    width:88%;
+    min-height:52px;
 
-            <div class="photo">
-                ẢNH 02
-            </div>
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    align-items:center;
 
-            <div class="photo">
-                ẢNH 03
-            </div>
+    padding:0 24px;
 
-            <div class="photo">
-                ẢNH 04
-            </div>
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.5px;
 
+    background:#f7f7f7;
+
+    background:#f7f7f7;
+
+clip-path:polygon(
+    2% 0,
+    98% 0,
+
+    97% 8%,
+    99% 15%,
+    97% 22%,
+    98% 30%,
+    96% 38%,
+    99% 48%,
+    97% 57%,
+    98% 66%,
+    96% 75%,
+    99% 84%,
+    97% 92%,
+    98% 100%,
+
+    2% 100%,
+
+    3% 92%,
+    1% 84%,
+    3% 75%,
+    2% 66%,
+    4% 57%,
+    1% 48%,
+    3% 38%,
+    2% 30%,
+    4% 22%,
+    1% 15%,
+    3% 8%
+);
+
+filter:
+    drop-shadow(7px 7px 2px rgba(0,0,0,0.20))
+    drop-shadow(18px 18px 12px rgba(0,0,0,0.14));
+">
+        <div style="text-align:left;">
+            GÓI CHỤP
         </div>
 
-    </section>
+        <div style="text-align:center;">
+            THỜI GIAN
+        </div>
+
+        <div style="text-align:right;">
+            CHI PHÍ
+        </div>
+    </div>
 
 
-    <section class="contact" id="contact">
-
-        <p class="label">LIÊN HỆ</p>
-
-        <h2>CAM — Kỷ Yếu</h2>
-
-        <p>
-            Chụp Ảnh & Make Up Kỷ Yếu
-        </p>
-
-        <a href="tel:0123456789">
-            Đặt lịch chụp
-        </a>
-
-    </section>
+    <!-- ĐƯỜNG DỌC -->
+    <div style="
+        width:1px;
+        height:25px;
+        background:#aaa;
+    "></div>
 
 
-    <footer>
-        © 2026 CAM Studio
-    </footer>
+    <!-- GÓI 1 -->
+    <div style="
+        width:88%;
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+        align-items:center;
+        padding:10px 20px;
+    ">
+
+        <div style="line-height:2;">
+            LỄ ĂN HỎI<br>
+            LỄ CƯỚI
+        </div>
+
+        <div style="
+            text-align:center;
+            line-height:2;
+        ">
+            01 BUỔI<br>
+            01 NGÀY
+        </div>
+
+        <div style="
+            text-align:right;
+            line-height:2;
+        ">
+            1.500.000đ<br>
+            2.500.000đ
+        </div>
+
+    </div>
+
+
+    <!-- ĐƯỜNG DỌC -->
+    <div style="
+        width:1px;
+        height:25px;
+        background:#aaa;
+    "></div>
+
+
+    <!-- LỄ ĂN HỎI & LỄ CƯỚI -->
+<div style="
+    width:88%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    align-items:center;
+    padding:10px 20px;
+">
+
+    <div style="
+        line-height:2;
+    ">
+        LỄ ĂN HỎI<br>
+        & LỄ CƯỚI
+    </div>
+
+    <div style="
+        text-align:center;
+        line-height:2;
+    ">
+        01 BUỔI<br>
+        01 NGÀY
+    </div>
+
+    <div style="
+        text-align:right;
+        line-height:2;
+    ">
+        2.000.000đ<br>
+        2.500.000đ
+    </div>
+
+</div>
+
+
+    <!-- ĐƯỜNG DỌC CUỐI -->
+    <div style="
+        width:1px;
+        height:25px;
+        background:#aaa;
+    "></div>
+
+
+    <!-- GÓI 1 GIỜ -->
+    <div style="
+        width:88%;
+        min-height:48px;
+        
+
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+        align-items:center;
+
+        padding:0 20px;
+    ">
+
+        <div>
+            GÓI 1 GIỜ
+        </div>
+
+        <div style="text-align:center;">
+            01 GIỜ
+        </div>
+
+        <div style="text-align:right;">
+            800.000đ
+        </div>
+
+    </div>
+</div><!-- =========================
+     THÔNG TIN GÓI CHỤP
+========================= -->
+
+<div style="
+    width:100%;
+    margin-top:30px;
+">
+
+    <!-- DÒNG KẺ -->
+    <div style="
+        width:80%;
+        height:1px;
+        background:rgba(0,0,0,0.28);
+        margin:0 auto 14px auto;
+    "></div>
+
+    <!-- TIÊU ĐỀ -->
+    <div style="
+        width:100%;
+        text-align:center;
+
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:1px;
+
+        margin-bottom:14px;
+    ">
+        THÔNG TIN GÓI CHỤP
+    </div>
+
+
+    <!-- NỘI DUNG -->
+    <div style="
+        width:88%;
+        margin:0 auto;
+
+        font-size:11px;
+        font-weight:400;
+        line-height:1.8;
+    ">
+
+        <div>
+            ⤷ Ekip <strong>1 thợ / 1 buổi</strong>, ngày chụp.
+        </div>
+
+        <div>
+            ⤷ <strong>Không giới hạn</strong> số lượng File ảnh.
+        </div>
+
+        <div>
+            ⤷ Trả toàn bộ File ảnh chỉnh sửa sau <strong>5 - 7 ngày</strong>.
+        </div>
+
+        <div>
+            ⤷ Miễn phí đi lại trong bán kính <strong>10 km</strong>.
+            <span style="
+                font-size:9px;
+                color:#666;
+                font-style:italic;
+            ">
+                (Trên 10 km phí đi lại là 10k/km)
+            </span>
+        </div>
+
+    </div>
+</div>
+<!-- THÔNG TIN GÓI CHỤP -->
+<div style="
+    width:88%;
+    margin-top:30px;
+    padding-top:18px;
+    
+
+    font-size:11px;
+    font-weight:400;
+    line-height:1.7;
+    letter-spacing:0.2px;
+
+    text-align:left;
+">
+    <div style="
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:10px;
+    letter-spacing:1px;
+    text-align:center;
+">
+
+      
+
+
+
+</div>
+</article>
+</main>
+
+
+
+<!-- =====================
+     FOOTER
+===================== -->
+
+<footer class="footer">
+
+    <div class="footer-brand">
+        CAM STUDIO
+    </div>
+
+    <div class="footer-text">
+        STORIES THAT REMAIN
+    </div>
+
+</footer>
+
 
 </body>
 </html>
