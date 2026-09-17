@@ -4,15 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CAM STUDIO - Bảng Báo Giá</title>
+<meta name="theme-color" content="#292929">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CAM STUDIO">
+<meta name="mobile-web-app-capable" content="yes">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;min-height:100%;background:#292929;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{
+  width:100%;
+  min-height:100%;
+  margin:0;
+  background:#292929;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+html{
+  min-height:100dvh;
+  background:#292929;
+}
+body{
+  min-height:100dvh;
+  overflow-x:hidden;
+  overscroll-behavior-y:none;
+}
 body{font-family:"Manrope",sans-serif;color:#111}
 
 /* Khung tổng thể theo đúng tỷ lệ ảnh mẫu */
 .header{
-  height:100px;padding:0 5.3%;
+  height:100px;padding:0 max(5.3%, env(safe-area-inset-right)) 0 max(5.3%, env(safe-area-inset-left));
   display:flex;align-items:center;justify-content:space-between;
   color:#fff;
 }
@@ -282,10 +303,10 @@ body{font-family:"Manrope",sans-serif;color:#111}
 
   .stage{
     display:block;
-    padding:
-      0
-      calc(26.55 * var(--vw390))
-      calc(43 * var(--vw390));
+    padding-top:0;
+    padding-right:max(calc(26.55 * var(--vw390)), env(safe-area-inset-right));
+    padding-bottom:max(calc(43 * var(--vw390)), env(safe-area-inset-bottom));
+    padding-left:max(calc(26.55 * var(--vw390)), env(safe-area-inset-left));
   }
 
   .paper{
@@ -634,5 +655,12 @@ body{font-family:"Manrope",sans-serif;color:#111}
   <div class="footer-bottom">STORIES THAT REMAIN</div>
 </footer>
 
+<script>
+  // Trình duyệt quyết định thanh điều hướng có được thu gọn hay không.
+  // Lệnh này chỉ giúp đưa trang về đầu và tận dụng viewport khả dụng.
+  window.addEventListener("load", () => {
+    setTimeout(() => window.scrollTo(0, 1), 50);
+  });
+</script>
 </body>
 </html>
