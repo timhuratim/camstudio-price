@@ -2,12 +2,12 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CAM STUDIO - Bảng Báo Giá</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;min-height:100%;background:#292929}
+html,body{width:100%;min-height:100%;background:#292929;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:"Manrope",sans-serif;color:#111}
 
 /* Khung tổng thể theo đúng tỷ lệ ảnh mẫu */
@@ -258,121 +258,225 @@ body{font-family:"Manrope",sans-serif;color:#111}
   letter-spacing:2px;
   color:rgba(0,0,0,.38);
 }
-/* MOBILE FLUID RESPONSIVE
-   Không phụ thuộc đời iPhone: tự co giãn theo viewport 320–650px */
+/* MOBILE — scale đồng bộ theo chiều rộng màn hình
+   390px là viewport thiết kế chuẩn. Mọi kích thước co/nở cùng nhau. */
 @media(max-width:650px){
-  .header{
-    height:clamp(68px,20.7vw,96px);
-    padding:0 5.2%;
+
+  :root{
+    --vw390: calc(100vw / 390);
   }
-  .brand{font-size:clamp(9px,2.8vw,13px);letter-spacing:clamp(1.8px,.62vw,2.8px)}
-  .header-title{font-size:clamp(8px,2.55vw,12px)}
+
+  .header{
+    height:calc(80.56 * var(--vw390));
+    padding:0 calc(18.31 * var(--vw390));
+  }
+
+  .brand{
+    font-size:calc(10.1 * var(--vw390));
+    letter-spacing:calc(2.2 * var(--vw390));
+  }
+
+  .header-title{
+    font-size:calc(9.6 * var(--vw390));
+  }
 
   .stage{
     display:block;
-    padding:0 6.8% clamp(36px,11.5vw,54px);
+    padding:
+      0
+      calc(26.55 * var(--vw390))
+      calc(43 * var(--vw390));
   }
 
   .paper{
     width:100%;
     max-width:none;
     min-height:0;
-    height:auto;
-    aspect-ratio:710 / 1353;
-    padding:clamp(37px,11.75vw,55px) clamp(20px,6.46vw,31px) clamp(22px,6.9vw,32px);
+    height:calc(619.35 * var(--vw390));
+    padding:
+      calc(45.8 * var(--vw390))
+      calc(25.2 * var(--vw390))
+      calc(27 * var(--vw390));
     box-shadow:
-      clamp(4px,1.4vw,7px) clamp(5px,1.55vw,8px) 0 rgba(0,0,0,.20),
-      clamp(10px,3.3vw,16px) clamp(11px,3.5vw,17px) clamp(10px,3.3vw,16px) rgba(0,0,0,.30);
+      calc(5.5 * var(--vw390))
+      calc(6 * var(--vw390))
+      0 rgba(0,0,0,.20),
+      calc(12.8 * var(--vw390))
+      calc(13.7 * var(--vw390))
+      calc(12.8 * var(--vw390))
+      rgba(0,0,0,.30);
   }
 
   .paper::before{
-    width:clamp(54px,17vw,80px);
-    height:140%;
-    left:43%;top:-16%;
-    transform:rotate(-27deg);
-    filter:blur(clamp(6px,2vw,10px));
+    width:calc(66.4 * var(--vw390));
+    height:calc(800 * var(--vw390));
+    left:43%;
+    top:calc(-103 * var(--vw390));
+    filter:blur(calc(7.8 * var(--vw390)));
   }
 
   .main-title{
-    font-size:clamp(21px,6.46vw,30px);
+    font-size:calc(25.2 * var(--vw390));
     line-height:1.13;
-    letter-spacing:clamp(-1.1px,-.23vw,-.6px);
+    letter-spacing:calc(-.9 * var(--vw390));
   }
 
-  .intro{margin-top:clamp(10px,3.3vw,15px)}
-  .intro-tag{font-size:clamp(5px,1.53vw,7px);padding:clamp(3px,.94vw,4.5px) clamp(5px,1.76vw,8px)}
-  .intro-sub{font-size:clamp(4px,1.18vw,5.5px);margin-top:clamp(3px,1.05vw,5px)}
+  .intro{
+    margin-top:calc(12.8 * var(--vw390));
+  }
 
-  .pricing{margin-top:clamp(11px,3.53vw,16px);font-size:clamp(5px,1.53vw,7px)}
+  .intro-tag{
+    padding:
+      calc(3.65 * var(--vw390))
+      calc(6.85 * var(--vw390));
+    font-size:calc(5.95 * var(--vw390));
+  }
+
+  .intro-sub{
+    margin-top:calc(4.1 * var(--vw390));
+    font-size:calc(4.58 * var(--vw390));
+  }
+
+  .pricing{
+    margin-top:calc(13.75 * var(--vw390));
+    font-size:calc(5.95 * var(--vw390));
+  }
+
   .price-head{
-    min-height:clamp(20px,6.34vw,29px);
-    padding:0 clamp(10px,3.3vw,15px);
-    font-size:clamp(5.8px,1.76vw,8px);
+    min-height:0;
+    height:calc(24.72 * var(--vw390));
+    padding:0 calc(12.82 * var(--vw390));
+    font-size:calc(6.87 * var(--vw390));
   }
-  .row{width:94%;padding:0 clamp(3px,1.05vw,5px)}
-  .row.two{line-height:2.55}
-  .row.one{min-height:clamp(15px,4.58vw,21px)}
-  .connector{height:clamp(7px,2.12vw,10px)}
-  .gap{height:clamp(5px,1.76vw,8px)}
 
-  .info{margin-top:clamp(5px,1.65vw,8px)}
-  .rule{margin-bottom:clamp(12px,4vw,18px)}
-  .info-title{
-    font-size:clamp(5.8px,1.76vw,8px);
-    letter-spacing:clamp(.5px,.16vw,.75px);
-    margin-bottom:clamp(12px,4vw,18px);
+  .gap{
+    height:calc(6.87 * var(--vw390));
   }
+
+  .row{
+    width:94%;
+    padding:0 calc(4.12 * var(--vw390));
+  }
+
+  .row.two{line-height:2.55}
+
+  .row.one{
+    min-height:0;
+    height:calc(17.85 * var(--vw390));
+  }
+
+  .connector{
+    height:calc(8.24 * var(--vw390));
+  }
+
+  .info{
+    margin-top:calc(6.4 * var(--vw390));
+  }
+
+  .rule{
+    margin-bottom:calc(15.56 * var(--vw390));
+  }
+
+  .info-title{
+    font-size:calc(6.87 * var(--vw390));
+    letter-spacing:calc(.64 * var(--vw390));
+    margin-bottom:calc(15.56 * var(--vw390));
+  }
+
   .info-copy{
     width:97%;
-    font-size:clamp(4.1px,1.29vw,6px);
+    font-size:calc(5.04 * var(--vw390));
     line-height:2.15;
     white-space:nowrap;
   }
-  .info-copy .arrow{width:clamp(5px,1.76vw,8px)}
 
-  /* Social luôn neo ở đáy tờ giấy */
+  .info-copy .arrow{
+    width:calc(6.87 * var(--vw390));
+  }
+
+  /* Social neo vào đáy giấy nhưng cũng scale cùng viewport */
   .social-area{
-    bottom:clamp(13px,4.1vw,19px);
+    bottom:calc(16 * var(--vw390));
     width:76%;
   }
+
   .social-title{
-    gap:clamp(7px,2.3vw,11px);
-    margin-bottom:clamp(8px,3.05vw,14px);
-    font-size:clamp(4px,1.18vw,5.5px);
-    letter-spacing:clamp(1.3px,.46vw,2.1px);
+    gap:calc(9 * var(--vw390));
+    margin-bottom:calc(11 * var(--vw390));
+    font-size:calc(4.4 * var(--vw390));
+    letter-spacing:calc(1.65 * var(--vw390));
   }
-  .social-title::before,.social-title::after{height:.5px}
-  .social-links{gap:clamp(7px,2.3vw,11px)}
+
+  .social-title::before,
+  .social-title::after{
+    height:.5px;
+  }
+
+  .social-links{
+    gap:calc(9 * var(--vw390));
+  }
+
   .social-icon{
-    width:clamp(24px,7.7vw,36px);
-    height:clamp(24px,7.7vw,36px);
-    margin-bottom:clamp(4px,1.28vw,6px);
+    width:calc(27 * var(--vw390));
+    height:calc(27 * var(--vw390));
+    margin-bottom:calc(4.5 * var(--vw390));
     border-width:.5px;
   }
-  .social-icon svg{width:46%;height:46%}
-  .social-icon .zalo-svg{width:56%;height:56%}
-  .social-name{font-size:clamp(3.5px,1.03vw,4.8px);letter-spacing:clamp(.35px,.13vw,.6px)}
+
+  .social-icon svg{
+    width:calc(12.5 * var(--vw390));
+    height:calc(12.5 * var(--vw390));
+  }
+
+  .social-icon .zalo-svg{
+    width:calc(15 * var(--vw390));
+    height:calc(15 * var(--vw390));
+  }
+
+  .social-name{
+    font-size:calc(3.9 * var(--vw390));
+    letter-spacing:calc(.5 * var(--vw390));
+  }
+
   .social-story{
-    margin-top:clamp(8px,2.8vw,13px);
-    font-size:clamp(3px,.9vw,4.2px);
-    letter-spacing:clamp(1px,.38vw,1.7px);
-    color:rgba(0,0,0,.38);
+    margin-top:calc(10 * var(--vw390));
+    font-size:calc(3.5 * var(--vw390));
+    letter-spacing:calc(1.35 * var(--vw390));
+    color:rgba(0,0,0,.32);
   }
 
   .footer{
-    min-height:clamp(82px,26vw,120px);
-    padding:clamp(14px,4.5vw,21px) 5.3% clamp(8px,2.8vw,13px);
+    height:calc(101.6 * var(--vw390));
+    min-height:calc(101.6 * var(--vw390));
+    padding:
+      calc(17.4 * var(--vw390))
+      calc(24 * var(--vw390))
+      calc(9 * var(--vw390));
   }
-  .footer strong{font-size:clamp(10px,3.05vw,14px)}
-  .footer span{font-size:clamp(5.5px,1.8vw,8px);letter-spacing:clamp(1.2px,.46vw,2.1px)}
-  .footer-right strong{font-size:clamp(10px,3.05vw,14px)}
+
+  .footer-left,
+  .footer-right{
+    gap:calc(2 * var(--vw390));
+  }
+
+  .footer strong,
+  .footer-right strong{
+    font-size:calc(9.15 * var(--vw390));
+  }
+
+  .footer span{
+    font-size:calc(5.04 * var(--vw390));
+    letter-spacing:calc(.92 * var(--vw390));
+  }
+
   .footer-bottom{
-    margin-top:clamp(7px,2.3vw,10px);
-    padding-top:clamp(5px,1.55vw,7px);
-    font-size:clamp(5px,1.55vw,7px);
-    letter-spacing:clamp(1.8px,.64vw,3px);
+    margin-top:calc(8.24 * var(--vw390));
+    padding-top:calc(5.5 * var(--vw390));
+    font-size:calc(4.12 * var(--vw390));
+    letter-spacing:calc(1.83 * var(--vw390));
   }
 }
+
 </style>
 </head>
 <body>
