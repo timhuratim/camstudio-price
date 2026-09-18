@@ -146,11 +146,71 @@ body{font-family:"Manrope",sans-serif;color:#111}
   margin:0 auto;
 }
 .gap{height:14px}
+/* ===== BỐ CỤC BẢNG GIÁ MỚI ===== */
 
+.price-group{
+  width:94%;
+  display:grid;
+  grid-template-columns:33.333% 66.667%;
+  border-bottom:1px solid rgba(0,0,0,.18);
+}
+
+.price-group:last-child{
+  border-bottom:none;
+}
+
+.package-name{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding:8px 9px;
+}
+
+.package-name strong{
+  display:block;
+  font-weight:600;
+}
+
+.package-name em{
+  display:block;
+  margin-top:4px;
+  font-size:.82em;
+  line-height:1.25;
+  font-weight:400;
+  font-style:italic;
+  color:rgba(0,0,0,.48);
+}
+
+.package-options{
+  display:flex;
+  flex-direction:column;
+}
+
+.option{
+  display:grid;
+  grid-template-columns:50% 50%;
+  align-items:center;
+  min-height:34px;
+}
+
+/* đường kẻ chỉ chạy từ THỜI GIAN → CHI PHÍ */
+.option + .option{
+  border-top:1px solid rgba(0,0,0,.18);
+}
+
+.option > div:first-child{
+  text-align:center;
+}
+
+.option > div:last-child{
+  text-align:right;
+  padding-right:9px;
+}
 /* Thông tin */
 .info{
   width:100%;
-  margin-top:15px;
+  margin-top:8px;
 }
 .rule{
   width:97%;height:1px;
@@ -391,7 +451,7 @@ body{font-family:"Manrope",sans-serif;color:#111}
   }
 
   .info{
-    margin-top:calc(6.4 * var(--vw390));
+    margin-top:calc(4 * var(--vw390));
   }
 
   .rule{
@@ -529,27 +589,80 @@ body{font-family:"Manrope",sans-serif;color:#111}
 
       <div class="gap"></div>
 
-      <div class="row two">
-        <div>LỄ ĂN HỎI<br>LỄ CƯỚI</div>
-        <div>01 BUỔI<br>01 NGÀY</div>
-        <div>1.500.000đ<br>2.500.000đ</div>
-      </div>
+    <!-- LỄ ĂN HỎI -->
+<div class="price-group">
+  <div class="package-name">
+      <strong>LỄ ĂN HỎI</strong>
+      <em>(Chụp tại nhà, lễ ăn hỏi)</em>
+    </div>
 
-      <div class="connector"></div>
+  <div class="package-options">
+    <div class="option">
+      <div>01 BUỔI</div>
+      <div>1.500.000đ</div>
+    </div>
 
-      <div class="row two">
-        <div>LỄ ĂN HỎI<br>&amp; LỄ CƯỚI</div>
-        <div>01 BUỔI<br>01 NGÀY</div>
-        <div>2.000.000đ<br>2.500.000đ</div>
-      </div>
+    <div class="option">
+      <div>01 NGÀY</div>
+      <div>2.500.000đ</div>
+    </div>
+  </div>
+</div>
 
-      <div class="connector"></div>
+<!-- LỄ CƯỚI -->
+<div class="price-group">
+  <div class="package-name">
+      <strong>LỄ CƯỚI</strong>
+      <em>(Chụp ngày cưới)</em>
+    </div>
 
-      <div class="row one">
-        <div>GÓI 1 GIỜ</div>
-        <div>01 GIỜ</div>
-        <div>800.000đ</div>
-      </div>
+  <div class="package-options">
+    <div class="option">
+      <div>01 BUỔI</div>
+      <div>1.500.000đ</div>
+    </div>
+
+    <div class="option">
+      <div>01 NGÀY</div>
+      <div>2.500.000đ</div>
+    </div>
+  </div>
+</div>
+
+<!-- ĂN HỎI + LỄ CƯỚI -->
+<div class="price-group">
+  <div class="package-name">
+      <strong>ĂN HỎI + LỄ CƯỚI</strong>
+      <em>(Trọn vẹn cả hai lễ)</em>
+    </div>
+
+  <div class="package-options">
+    <div class="option">
+      <div>01 BUỔI</div>
+      <div>2.000.000đ</div>
+    </div>
+
+    <div class="option">
+      <div>01 NGÀY</div>
+      <div>2.500.000đ</div>
+    </div>
+  </div>
+</div>
+
+<!-- GÓI THEO GIỜ -->
+<div class="price-group">
+  <div class="package-name">
+      <strong>GÓI THEO GIỜ</strong>
+      <em>(Linh hoạt thời gian)</em>
+    </div>
+
+  <div class="package-options">
+    <div class="option">
+      <div>01 GIỜ</div>
+      <div>800.000đ</div>
+    </div>
+  </div>
+</div>
     </section>
 
     <section class="info">
