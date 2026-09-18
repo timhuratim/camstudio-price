@@ -130,21 +130,8 @@ body{font-family:"Manrope",sans-serif;color:#111}
   );
   filter:drop-shadow(8px 9px 6px rgba(0,0,0,.09));
 }
-.row{
-  width:94%;
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  align-items:center;
-  padding:0 9px;
-}
-.row>div:nth-child(2){text-align:center}
-.row>div:nth-child(3){text-align:right}
-.row.two{line-height:2.55}
-.row.one{min-height:38px}
-.connector{
-  width:1px;height:19px;
-  background:rgba(0,0,0,.33);
-  margin:0 auto;
-}
+
+
 .gap{height:14px}
 /* ===== BỐ CỤC BẢNG GIÁ MỚI ===== */
 
@@ -216,12 +203,6 @@ body{font-family:"Manrope",sans-serif;color:#111}
   width:97%;height:1px;
   background:rgba(0,0,0,.38);
   margin:0 auto 35px;
-}
-.info-title{
-  text-align:center;
-  font-size:15px;font-weight:500;
-  letter-spacing:1.4px;
-  margin-bottom:34px;
 }
 .info-copy{
   width:96%;
@@ -434,34 +415,12 @@ body{font-family:"Manrope",sans-serif;color:#111}
     height:calc(6.87 * var(--vw390));
   }
 
-  .row{
-    width:94%;
-    padding:0 calc(4.12 * var(--vw390));
-  }
-
-  .row.two{line-height:2.55}
-
-  .row.one{
-    min-height:0;
-    height:calc(17.85 * var(--vw390));
-  }
-
-  .connector{
-    height:calc(8.24 * var(--vw390));
-  }
-
   .info{
     margin-top:calc(4 * var(--vw390));
   }
 
   .rule{
     margin-bottom:calc(8 * var(--vw390));
-  }
-
-  .info-title{
-    font-size:calc(6.87 * var(--vw390));
-    letter-spacing:calc(.64 * var(--vw390));
-    margin-bottom:calc(15.56 * var(--vw390));
   }
 
   .info-copy{
