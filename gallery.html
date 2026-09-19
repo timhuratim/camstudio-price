@@ -1,1 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+<title>CAM STUDIO - Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    background:#292929;
+    color:#fff;
+    font-family:"Manrope",sans-serif;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width:100%;
+    height:100px;
+    padding:0 5.3%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:3px;
+    white-space:nowrap;
+}
+
+.back{
+    color:#fff;
+    text-decoration:none;
+
+    font-size:10px;
+    letter-spacing:2px;
+
+    opacity:.7;
+    white-space:nowrap;
+}
+
+
+/* =========================
+   TIÊU ĐỀ
+========================= */
+
+.gallery-head{
+    width:100%;
+    padding:45px 5.3% 35px;
+}
+
+.gallery-head h1{
+    font-family:"Oswald",sans-serif;
+    font-size:42px;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:1px;
+}
+
+.gallery-head p{
+    margin-top:10px;
+
+    font-size:9px;
+    letter-spacing:3px;
+
+    opacity:.55;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    width:100%;
+
+    padding-left:5.3%;
+    padding-right:5.3%;
+    padding-bottom:70px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap:8px;
+}
+
+.gallery-item{
+    width:100%;
+    min-width:0;
+
+    overflow:hidden;
+}
+
+.gallery-item img{
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    object-fit:cover;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .header{
+        height:75px;
+
+        padding-left:24px;
+        padding-right:24px;
+    }
+
+    .brand{
+        font-size:12px;
+        letter-spacing:2.5px;
+    }
+
+    .back{
+        font-size:8px;
+        letter-spacing:1.5px;
+    }
+
+
+    .gallery-head{
+        padding:
+            30px
+            24px
+            25px;
+    }
+
+    .gallery-head h1{
+        font-size:32px;
+    }
+
+    .gallery-head p{
+        margin-top:8px;
+
+        font-size:8px;
+        letter-spacing:2.3px;
+    }
+
+
+    .gallery{
+        padding-left:6px;
+        padding-right:6px;
+        padding-bottom:50px;
+
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+
+        gap:5px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<header class="header">
+
+    <div class="brand">
+        CAM STUDIO
+    </div>
+
+    <a href="index.html" class="back">
+        ← QUAY LẠI
+    </a>
+
+</header>
+
+
+<section class="gallery-head">
+
+    <h1>
+        WEDDING STORIES
+    </h1>
+
+    <p>
+        CAM STUDIO · PHÓNG SỰ CƯỚI
+    </p>
+
+</section>
+
+
+<main class="gallery">
+
+    <div class="gallery-item">
+        <img src="images/01.jpg" alt="">
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/02.jpg" alt="">
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/03.jpg" alt="">
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/04.jpg" alt="">
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/05.jpg" alt="">
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/06.jpg" alt="">
+    </div>
+
+</main>
+
+
+</body>
+</html>
