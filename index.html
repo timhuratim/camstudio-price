@@ -713,7 +713,290 @@ body{font-family:"Manrope",sans-serif;color:#111}
   </div>
 </div>
     </section>
+<!-- =====================================================
+     GALLERY ẢNH THAM KHẢO
+     ĐẶT SAU PHẦN "MIỄN PHÍ ĐI LẠI..."
+     VÀ TRƯỚC "KẾT NỐI VỚI CAM STUDIO"
+===================================================== -->
 
+<style>
+
+/* =====================================================
+   GALLERY SETTINGS
+   CHỈNH KÍCH THƯỚC CHỦ YẾU Ở ĐÂY
+===================================================== */
+
+.gallery-section{
+
+    /* ===== SCALE KHUNG ===== */
+
+    --photo-width: 48%;      /* ĐỘ RỘNG KHUNG ẢNH */
+    --photo-ratio: 2 / 3;    /* TỈ LỆ KHUNG DỌC */
+    --photo-gap: 6px;        /* KHOẢNG CÁCH GIỮA ẢNH */
+
+
+    /* ===== KHOẢNG CÁCH TOÀN GALLERY ===== */
+
+    --gallery-top: 12px;     /* cách dòng "Miễn phí..." */
+    --gallery-bottom: 12px;  /* cách "KẾT NỐI..." */
+
+
+    width:100%;
+
+    margin-top:var(--gallery-top);
+    margin-bottom:var(--gallery-bottom);
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   THANH ẢNH
+===================================================== */
+
+.gallery-track{
+
+    width:100%;
+
+    display:flex;
+
+    gap:var(--photo-gap);
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    padding-left:var(--photo-gap);
+    padding-right:var(--photo-gap);
+
+    box-sizing:border-box;
+
+
+    /* Vuốt mượt trên điện thoại */
+
+    -webkit-overflow-scrolling:touch;
+
+
+    /* Khi vuốt, ảnh tự bắt đúng vị trí */
+
+    scroll-snap-type:x mandatory;
+
+
+    /* Ẩn scrollbar Firefox */
+
+    scrollbar-width:none;
+}
+
+
+/* Ẩn scrollbar Chrome / Safari */
+
+.gallery-track::-webkit-scrollbar{
+    display:none;
+}
+
+
+/* =====================================================
+   TỪNG KHUNG ẢNH
+===================================================== */
+
+.gallery-card{
+
+    /*
+       QUAN TRỌNG:
+
+       Kích thước từng ảnh lấy từ
+       --photo-width ở trên.
+    */
+
+    flex:0 0 var(--photo-width);
+
+    aspect-ratio:var(--photo-ratio);
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-sizing:border-box;
+
+    border:1px solid rgba(0,0,0,.15);
+
+    background:rgba(255,255,255,.35);
+
+    scroll-snap-align:start;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   ẢNH THẬT
+   SAU NÀY KHI BẠN CHÈN ẢNH
+===================================================== */
+
+.gallery-card img{
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:transform .35s ease;
+}
+
+
+/* Desktop rê chuột vào ảnh */
+
+@media(hover:hover){
+
+    .gallery-card:hover img{
+        transform:scale(1.025);
+    }
+
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+   CHỈ DÙNG TRONG LÚC CHƯA CHÈN ẢNH
+===================================================== */
+
+.gallery-placeholder{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:rgba(0,0,0,.25);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+    .gallery-section{
+
+        /*
+        ================================================
+
+        CHỖ BẠN SỬA SCALE TRÊN ĐIỆN THOẠI
+
+        40% = nhỏ
+        45% = vừa
+        48% = hiện tại
+        52% = lớn hơn
+        55% = khá lớn
+        60% = rất lớn
+
+        ================================================
+        */
+
+        --photo-width:36%;
+
+
+        /* khoảng cách giữa hai ảnh */
+
+        --photo-gap:5px;
+
+
+        /* khoảng trên gallery */
+
+        --gallery-top:10px;
+
+
+        /* khoảng dưới gallery */
+
+        --gallery-bottom:10px;
+    }
+
+}
+
+</style>
+
+
+<!-- =====================================================
+     HTML GALLERY
+===================================================== -->
+
+<section class="gallery-section">
+
+    <div class="gallery-track">
+
+
+        <!-- ẢNH 01 -->
+
+        <a class="gallery-card"
+           href="gallery.html">
+
+            <div class="gallery-placeholder">
+                01
+            </div>
+
+        </a>
+
+
+        <!-- ẢNH 02 -->
+
+        <a class="gallery-card"
+           href="gallery.html">
+
+            <div class="gallery-placeholder">
+                02
+            </div>
+
+        </a>
+
+
+        <!-- ẢNH 03 -->
+
+        <a class="gallery-card"
+           href="gallery.html">
+
+            <div class="gallery-placeholder">
+                03
+            </div>
+
+        </a>
+
+
+        <!-- ẢNH 04 -->
+
+        <a class="gallery-card"
+           href="gallery.html">
+
+            <div class="gallery-placeholder">
+                04
+            </div>
+
+        </a>
+
+
+        <!-- ẢNH 05 -->
+
+        <a class="gallery-card"
+           href="gallery.html">
+
+            <div class="gallery-placeholder">
+                05
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
     <!-- KẾT NỐI CAM STUDIO -->
     <section class="social-area">
 
@@ -808,6 +1091,7 @@ body{font-family:"Manrope",sans-serif;color:#111}
   window.addEventListener("load", () => {
     setTimeout(() => window.scrollTo(0, 1), 50);
   });
+  
 </script>
 </body>
 </html>
